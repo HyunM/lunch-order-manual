@@ -18,9 +18,6 @@ export const Admin = () => {
 
   return (
     <div>
-      <Document file={adminManual} onLoadError={console.error}>
-        <Page pageNumber={pageNumber} />
-      </Document>
       <div
         style={{
           display: "flex",
@@ -39,6 +36,9 @@ export const Admin = () => {
         <button onClick={handleClickPrev}>PREV</button>
         <button onClick={handleClickNext}>NEXT</button>
       </div>
+      <Document file={adminManual} onLoadError={console.error}>
+        <Page pageNumber={pageNumber} />
+      </Document>
     </div>
   );
 };
