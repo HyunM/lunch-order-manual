@@ -1,10 +1,11 @@
 import { Admin } from "./Admin";
 import { User } from "./User";
 import React, { useState } from "react";
+import "./App.css";
 const App = () => {
   const [state, setstate] = useState(0);
   return (
-    <>
+    <div className="responsive">
       <h2>Lunch Order Manual</h2>
       <ul>
         <li
@@ -43,7 +44,7 @@ const App = () => {
       </ul>
       {state === 1 && <Admin />}
       {state === 2 && <User />}
-    </>
+    </div>
   );
 };
 

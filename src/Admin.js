@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import adminManual from "./AdminManual.pdf";
+import "./Admin.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
 export const Admin = () => {
   const [numPages, setNumPages] = useState(20);
   const [pageNumber, setPageNumber] = useState(1);
@@ -21,20 +23,36 @@ export const Admin = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          width: "15%",
+          width: "100%",
+          height: "30px",
         }}
       >
         <p
           style={{
-            marginTop: "2px",
-            marginBottom: "2px",
+            marginTop: "0px",
+            marginBottom: "0px",
           }}
         >
           Page {pageNumber} of {numPages}
         </p>
-        <button onClick={handleClickPrev}>PREV</button>
-        <button onClick={handleClickNext}>NEXT</button>
+        <button
+          style={{
+            marginLeft: "20px",
+            marginTop: "0px",
+            marginBottom: "0px",
+          }}
+          onClick={handleClickPrev}
+        >
+          PREV
+        </button>
+        <button
+          style={{
+            marginLeft: "10px",
+          }}
+          onClick={handleClickNext}
+        >
+          NEXT
+        </button>
       </div>
       <Document file={adminManual} onLoadError={console.error}>
         <Page pageNumber={pageNumber} />
